@@ -1,0 +1,300 @@
+﻿<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub Achievements Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .achievements {
+            padding: 40px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .achievement {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease;
+            border: 2px solid transparent;
+        }
+        
+        .achievement:hover {
+            transform: translateY(-5px);
+            border-color: #667eea;
+        }
+        
+        .achievement.completed {
+            background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+            color: white;
+        }
+        
+        .achievement-icon {
+            font-size: 4rem;
+            margin-bottom: 20px;
+        }
+        
+        .achievement h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .achievement p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        
+        .progress-bar {
+            width: 100%;
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+            transition: width 0.3s ease;
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .stats {
+            background: #f8f9fa;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .stats h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>ðŸ† GitHub Achievements Tracker</h1>
+            <p>Acompanhe seu progresso e conquiste todos os achievements do GitHub!</p>
+        </div>
+        
+        <div class="achievements">
+            <div class="achievement" data-achievement="quickdraw">
+                <div class="achievement-icon">âš¡</div>
+                <h3>Quickdraw</h3>
+                <p>Feche uma issue ou pull request em menos de 5 minutos apÃ³s abrir</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <button class="btn" onclick="toggleAchievement('quickdraw')">Marcar como Conquistado</button>
+            </div>
+            
+            <div class="achievement" data-achievement="pair">
+                <div class="achievement-icon">ðŸ‘¥</div>
+                <h3>Pair Extraordinaire</h3>
+                <p>Co-autore um pull request que foi aceito</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <button class="btn" onclick="toggleAchievement('pair')">Marcar como Conquistado</button>
+            </div>
+            
+            <div class="achievement" data-achievement="starstruck">
+                <div class="achievement-icon">â­</div>
+                <h3>Starstruck</h3>
+                <p>Crie um repositÃ³rio que tenha 16+ estrelas</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <button class="btn" onclick="toggleAchievement('starstruck')">Marcar como Conquistado</button>
+            </div>
+            
+            <div class="achievement" data-achievement="galaxy">
+                <div class="achievement-icon">ðŸ§ </div>
+                <h3>Galaxy Brain</h3>
+                <p>Tenha 2 respostas aceitas em Discussions</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <button class="btn" onclick="toggleAchievement('galaxy')">Marcar como Conquistado</button>
+            </div>
+            
+            <div class="achievement" data-achievement="pull">
+                <div class="achievement-icon">ðŸ¦ˆ</div>
+                <h3>Pull Shark</h3>
+                <p>Tenha 2 pull requests aceitos</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <button class="btn" onclick="toggleAchievement('pull')">Marcar como Conquistado</button>
+            </div>
+            
+            <div class="achievement" data-achievement="sponsor">
+                <div class="achievement-icon">ðŸ’°</div>
+                <h3>Public Sponsor</h3>
+                <p>Patrocine pelo menos um desenvolvedor via GitHub Sponsors</p>
+                <div class="progress-bar">
+                    <div class="progress-fill" style="width: 0%"></div>
+                </div>
+                <button class="btn" onclick="toggleAchievement('sponsor')">Marcar como Conquistado</button>
+            </div>
+        </div>
+        
+        <div class="stats">
+            <h2>ðŸ“Š EstatÃ­sticas</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number" id="completed-count">0</div>
+                    <div class="stat-label">Achievements Conquistados</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="total-count">6</div>
+                    <div class="stat-label">Total de Achievements</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number" id="progress-percent">0%</div>
+                    <div class="stat-label">Progresso</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Carregar dados salvos
+        function loadData() {
+            const achievements = JSON.parse(localStorage.getItem('achievements') || '{}');
+            Object.keys(achievements).forEach(achievement => {
+                if (achievements[achievement]) {
+                    toggleAchievement(achievement, false);
+                }
+            });
+        }
+        
+        // Alternar achievement
+        function toggleAchievement(achievement, save = true) {
+            const element = document.querySelector([data-achievement=""]);
+            const progressFill = element.querySelector('.progress-fill');
+            const button = element.querySelector('.btn');
+            
+            if (element.classList.contains('completed')) {
+                element.classList.remove('completed');
+                progressFill.style.width = '0%';
+                button.textContent = 'Marcar como Conquistado';
+                if (save) {
+                    const achievements = JSON.parse(localStorage.getItem('achievements') || '{}');
+                    achievements[achievement] = false;
+                    localStorage.setItem('achievements', JSON.stringify(achievements));
+                }
+            } else {
+                element.classList.add('completed');
+                progressFill.style.width = '100%';
+                button.textContent = 'Conquistado! ðŸŽ‰';
+                if (save) {
+                    const achievements = JSON.parse(localStorage.getItem('achievements') || '{}');
+                    achievements[achievement] = true;
+                    localStorage.setItem('achievements', JSON.stringify(achievements));
+                }
+            }
+            
+            updateStats();
+        }
+        
+        // Atualizar estatÃ­sticas
+        function updateStats() {
+            const achievements = JSON.parse(localStorage.getItem('achievements') || '{}');
+            const completed = Object.values(achievements).filter(Boolean).length;
+            const total = 6;
+            const percent = Math.round((completed / total) * 100);
+            
+            document.getElementById('completed-count').textContent = completed;
+            document.getElementById('progress-percent').textContent = percent + '%';
+        }
+        
+        // Inicializar
+        document.addEventListener('DOMContentLoaded', function() {
+            loadData();
+            updateStats();
+        });
+    </script>
+</body>
+</html>
