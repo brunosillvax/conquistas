@@ -1,0 +1,8 @@
+﻿# Melhoria: adiciona mais exemplos praticos
+
+- Adiciona exemplo de PR template detalhado
+- Adiciona exemplo de Discussion response completa
+- Adiciona exemplo de projeto interessante
+- Melhora documentacao com casos de uso reais
+
+Co-authored-by: AI Assistant <ai@assistant.com>

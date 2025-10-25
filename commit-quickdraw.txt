@@ -1,0 +1,8 @@
+﻿# Melhoria: adiciona guia detalhado dos templates
+
+- Adiciona exemplos de quando usar cada template
+- Adiciona dicas para aumentar chances de sucesso  
+- Adiciona casos de uso especificos
+- Melhora documentacao com guias praticos
+
+Co-authored-by: AI Assistant <ai@assistant.com>
